@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Montserrat', sans-serif;
+}
+
+/* Text Selection */
+::selection {
+  background-color: #8b7355 !important;
+  color: #fff !important;
+}
+
+::-moz-selection {
+  background-color: #8b7355 !important;
+  color: #fff !important;
+}
+
+*::selection {
+  background-color: #8b7355 !important;
+  color: #fff !important;
+}
+
+*::-moz-selection {
+  background-color: #8b7355 !important;
+  color: #fff !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html {
+  scroll-behavior: initial; /* Lenis handles smooth scrolling */
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes scroll-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.animate-scroll-line {
+  animation: scroll-line 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+h1, h2, .font-serif {
+  font-family: var(--font-serif);
+}
+
+body {
+  font-family: var(--font-sans);
+}
