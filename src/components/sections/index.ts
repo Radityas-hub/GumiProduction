@@ -8,4 +8,4 @@ export { ProjectDetail } from "./ProjectDetail";
 export { NarrativeSection } from "./NarrativeSection";
 export { ServiceDetail } from "./ServiceDetail";
 
-
+export { PricingSection } from "./PricingSection";

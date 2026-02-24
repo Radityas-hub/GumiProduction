@@ -62,16 +62,13 @@ export function AboutSection({ className }: AboutSectionProps) {
           ref={textRef}
           className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-[1.4] tracking-tight text-[#1a1a1a]/40 font-light"
         >
-          <span className="text-[#1a1a1a] font-medium">Founded in 2022,</span>{" "}
-          Gumi Production emerged from a deep-seated passion for{" "}
-          <span className="text-[#1a1a1a] font-medium">visual storytelling.</span>{" "}
-          We don't just capture images; we evoke emotions. Based in the heart of Bali, we blend local cultural authenticity with a{" "}
-          <span className="text-[#1a1a1a] font-medium">global</span> cinematic{" "}
-          <span className="text-[#1a1a1a] font-medium">standard.</span>{" "}
-          From music videos to full-scale social media management, we are here to{" "}
-          <span className="text-[#1a1a1a] font-medium">transform</span> your{" "}
-          <span className="text-[#1a1a1a] font-medium">brand's essence</span>{" "}
-          into a meaningful digital experience
+          <span className="text-[#1a1a1a] font-medium">Gumi Production</span> is a{" "}
+          <span className="text-[#1a1a1a] font-medium">Bali-based</span> creative company specializing in{" "}
+          <span className="text-[#1a1a1a] font-medium">visual production</span> and{" "}
+          <span className="text-[#1a1a1a] font-medium">social media management.</span>{" "}
+          We help <span className="text-[#1a1a1a] font-medium">culinary brands</span> convey their stories and identities through{" "}
+          <span className="text-[#1a1a1a] font-medium">powerful, natural,</span> and{" "}
+          <span className="text-[#1a1a1a] font-medium">authentic visuals.</span>
         </p>
 
         {/* Button */}

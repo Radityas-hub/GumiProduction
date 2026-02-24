@@ -193,7 +193,9 @@ export function Navbar({ className }: NavbarProps) {
 
         {/* Contact Button */}
         <a
-          href="#contact"
+          href="https://wa.me/6285792047188?text=Halo%20Gumi%20Production%2C%20saya%20tertarik%20bekerja%20sama%20dan%20ingin%20berkonsultasi%20mengenai%20proyek%20saya."
+          target="_blank"
+          rel="noopener noreferrer"
           className="group flex items-center w-fit overflow-hidden"
         >
           {/* Left Arrow - Slides in */}

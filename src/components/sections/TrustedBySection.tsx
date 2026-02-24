@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useGSAP } from "@/hooks";
 import { cn } from "@/lib";
+import { Volume2, VolumeX } from "lucide-react";
 
 import Image from "next/image";
 
@@ -11,6 +12,15 @@ export function TrustedBySection() {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const videoWrapperRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
 
   useGSAP(
     (gsap) => {
@@ -76,24 +86,37 @@ export function TrustedBySection() {
         {/* Video Placeholder / Container */}
         <div
           ref={videoWrapperRef}
-          className="relative w-full aspect-video md:aspect-[2.35/1] bg-[#d4d4d4] rounded-xl overflow-hidden shadow-2xl group cursor-pointer"
+          onClick={toggleMute}
+          className="relative w-full aspect-video md:aspect-[3/2] bg-[#d4d4d4] rounded-xl overflow-hidden shadow-2xl group cursor-pointer"
         >
           {/* Dummy Video */}
           <video
+            ref={videoRef}
             autoPlay
             loop
             muted
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src="/videos/testi.mp4" type="video/mp4" />
+            <source src="/videos/testi.webm" type="video/webm" />
           </video>
 
-          {/* Placeholder Content - You can replace this with an actual video tag or Image */}
+          {/* Mute/Unmute UI Overlay - Always Visible */}
+          <div className="absolute bottom-6 right-6 z-20 flex items-center gap-2 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 transition-all duration-300">
+            {isMuted ? (
+              <>
+                <VolumeX className="w-4 h-4 text-white" />
+                <span className="text-[10px] text-white uppercase tracking-widest font-medium">Click to Unmute</span>
+              </>
+            ) : (
+              <>
+                <Volume2 className="w-4 h-4 text-white" />
+                <span className="text-[10px] text-white uppercase tracking-widest font-medium">Sound On</span>
+              </>
+            )}
+          </div>
 
-          
-          {/* Optional: Add an actual image/video here */}
-          {/* <Image src="/path/to/poster.jpg" fill className="object-cover" alt="Testimonial Video" /> */}
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
         </div>
       </div>
     </section>

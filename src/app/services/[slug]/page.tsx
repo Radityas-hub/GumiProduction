@@ -68,10 +68,6 @@ const SERVICES_DATA = {
         ],
         description: "Our clients see measurable results within 90 days. From increased foot traffic to direct bookings through Instagram, we deliver growth that impacts your bottom line.",
       },
-      authenticity: {
-        title: "Cultural Authenticity Meets Digital Trends",
-        description: "We blend Bali's aesthetic beauty with trending formats and algorithms. Your content feels authentic, not forced—because we understand both the culture and the platform.",
-      },
     },
 
     // Case Studies

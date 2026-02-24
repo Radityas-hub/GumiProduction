@@ -30,13 +30,13 @@ interface ProjectData {
     metric: string;
     label: string;
   }>;
-  testimonial: {
+  testimonial?: {
     quote: string;
     author: string;
     position: string;
     avatar: string;
   };
-  nextProject: {
+  nextProject?: {
     slug: string;
     title: string;
     category: string;
@@ -414,33 +414,35 @@ function ImpactSection({ project }: { project: ProjectData }) {
         </div>
 
         {/* Testimonial */}
-        <div className="testimonial-card bg-[#1a1a1a] rounded-2xl p-8 md:p-12 lg:p-16">
-          <div className="flex flex-col md:flex-row gap-8 items-start">
-            {/* Avatar */}
-            <div className="shrink-0">
-              <img
-                src={project.testimonial.avatar}
-                alt={project.testimonial.author}
-                className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover"
-              />
-            </div>
+        {project.testimonial && (
+          <div className="testimonial-card bg-[#1a1a1a] rounded-2xl p-8 md:p-12 lg:p-16">
+            <div className="flex flex-col md:flex-row gap-8 items-start">
+              {/* Avatar */}
+              <div className="shrink-0">
+                <img
+                  src={project.testimonial.avatar}
+                  alt={project.testimonial.author}
+                  className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover"
+                />
+              </div>
 
-            {/* Content */}
-            <div className="flex-1">
-              <blockquote className="text-xl md:text-2xl lg:text-3xl font-light text-[#E8E4DF] leading-relaxed mb-8 italic">
-                "{project.testimonial.quote}"
-              </blockquote>
-              <div>
-                <div className="text-lg md:text-xl font-medium text-[#E8E4DF] mb-1">
-                  {project.testimonial.author}
-                </div>
-                <div className="text-sm md:text-base text-[#E8E4DF]/60">
-                  {project.testimonial.position}
+              {/* Content */}
+              <div className="flex-1">
+                <blockquote className="text-xl md:text-2xl lg:text-3xl font-light text-[#E8E4DF] leading-relaxed mb-8 italic">
+                  "{project.testimonial.quote}"
+                </blockquote>
+                <div>
+                  <div className="text-lg md:text-xl font-medium text-[#E8E4DF] mb-1">
+                    {project.testimonial.author}
+                  </div>
+                  <div className="text-sm md:text-base text-[#E8E4DF]/60">
+                    {project.testimonial.position}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
@@ -448,6 +450,7 @@ function ImpactSection({ project }: { project: ProjectData }) {
 
 // 6. Next Project Section
 function NextProjectSection({ project }: { project: ProjectData }) {
+  if (!project.nextProject) return null;
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -508,7 +511,6 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
       <GallerySection project={project} />
       <BehindTheLensSection project={project} />
       <ImpactSection project={project} />
-      <NextProjectSection project={project} />
     </div>
   );
 }

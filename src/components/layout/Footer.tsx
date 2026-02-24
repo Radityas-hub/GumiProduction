@@ -61,13 +61,15 @@ export function Footer() {
       <div ref={ctaRef} className="border-b border-white/20 pb-20 mb-20 flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
         <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif max-w-4xl leading-tight">
           Ready to get started? <br />
-          <Link 
-            href="/contact" 
+          <a 
+            href="https://wa.me/6285792047188?text=Halo%20Gumi%20Production%2C%20saya%20ingin%20bertanya%20lebih%20lanjut%20mengenai%20jasa%20produksi%20video/foto." 
+            target="_blank"
+            rel="noopener noreferrer"
             className="font-bold flex items-center gap-4 mt-2 hover:text-[#d4d4d4] transition-colors group"
           >
             Get in touch 
             <ArrowRight className="w-8 h-8 md:w-12 md:h-12 transform group-hover:translate-x-2 transition-transform duration-300" />
-          </Link>
+          </a>
         </h2>
       </div>
 
@@ -85,7 +87,7 @@ export function Footer() {
               Indonesia
             </p>
             <p className="flex items-center gap-2 pt-2 hover:text-white transition-colors cursor-pointer">
-              <Mail className="w-4 h-4" /> hello@gumi.agency
+              <Mail className="w-4 h-4" /> gumiiproduction@gmail.com
             </p>
           </div>
         </div>
@@ -97,7 +99,7 @@ export function Footer() {
             {['Selected Works', 'Clients', 'About Us', 'Contact', 'F.A.Q'].map((item) => (
               <Link
                 key={item}
-                href="#"
+                href={item === 'Contact' ? 'https://wa.me/6285792047188?text=Halo%20Gumi%20Production%2C%20saya%20tertarik%20bekerja%20sama.' : '#'}
                 className="text-white/80 hover:text-white transition-colors text-sm font-medium w-fit relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
               >
                 {item}
@@ -124,19 +126,15 @@ export function Footer() {
 
         {/* Column 4: Socials */}
         <div className="flex flex-col gap-6">
-          <h4 className="text-2xl md:text-3xl font-bold font-serif">Follow @gumi</h4>
+          <h4 className="text-2xl md:text-3xl font-bold font-serif">Follow @gumiiproduction</h4>
           <div className="flex gap-4">
             <a
-              href="#"
+              href="https://www.instagram.com/gumiiproduction/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black hover:border-white transition-all duration-300 group"
             >
               <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
-            </a>
-            <a
-              href="#"
-              className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black hover:border-white transition-all duration-300 group"
-            >
-              <Twitter className="w-5 h-5 group-hover:scale-110 transition-transform" />
             </a>
           </div>
         </div>

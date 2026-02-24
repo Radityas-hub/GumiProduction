@@ -11,23 +11,27 @@ import Link from "next/link";
 const EXPERTISE_ITEMS = [
   {
     id: "01",
-    title: "Content Creation",
-    description: "Gambar Jasa",
+    title: "Photo & Video Production",
+    description: "Professional photo and video production for cinematic storytelling.",
+    image: "/images/solutionDummy.jpeg",
   },
   {
     id: "02",
-    title: "Video Production",
-    description: "Gambar Jasa",
+    title: "Content Strategy",
+    description: "Content strategy planning to define your brand voice and visual identity.",
+    image: "/images/content-strategy.jpg",
   },
   {
     id: "03",
     title: "Social Media Management",
-    description: "Gambar Jasa",
+    description: "Instagram, TikTok, and Facebook management to grow your community.",
+    image: "/images/Sosmed.jpg",
   },
   {
     id: "04",
-    title: "Digital Marketing",
-    description: "Gambar Jasa",
+    title: "Digital Advertising",
+    description: "Digital advertising across Meta Ads and Google Ads for maximum reach.",
+    image: "/images/paid-ads.jpg",
   },
 ];
 
@@ -135,11 +139,14 @@ export function ExpertiseSection() {
             {/* Image Container */}
             <div className="relative z-10 w-full aspect-[4/5] sm:aspect-square bg-gray-200 rounded-xl overflow-hidden mb-6 shadow-sm group-hover:shadow-xl transition-all duration-300">
               <Image 
-                src="/images/solutionDummy.jpeg" 
+                src={item.image} 
                 alt={item.title}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-500 group-hover:scale-105 brightness-[0.85] group-hover:brightness-100"
+                sizes="(max-width: 768px) 100vw, 25vw"
               />
+              {/* Dark Overlay */}
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
             </div>
 
             {/* Text Content */}

@@ -1,6 +1,6 @@
 "use client";
 
-import { Navbar, Footer, HeroSection, AboutSection, ExpertiseSection, SelectedWorksSection, TrustedBySection, AwardsSection } from "@/components";
+import { Navbar, Footer, HeroSection, AboutSection, ExpertiseSection, PricingSection, SelectedWorksSection, TrustedBySection, AwardsSection } from "@/components";
 
 export default function Home() {
   return (
@@ -17,8 +17,8 @@ export default function Home() {
       <AboutSection />
 
       <ExpertiseSection />
-
       <SelectedWorksSection />
+      <PricingSection />
 
       <TrustedBySection />
 

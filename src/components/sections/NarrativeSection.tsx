@@ -54,44 +54,12 @@ const PROCESS_STEPS = [
   },
 ];
 
-const TEAM_MEMBERS = [
-  {
-    name: "Arjuna Wijaya",
-    role: "Creative Director",
-    bio: "With 12+ years in visual storytelling, Arjuna leads our creative vision, ensuring every project carries the soul of Bali.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=faces",
-  },
-  {
-    name: "Kadek Saraswati",
-    role: "Lead Videographer",
-    bio: "A master of light and composition, Kadek captures moments that transcend the ordinary, bringing cinematic beauty to every frame.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=faces",
-  },
-  {
-    name: "Made Putra",
-    role: "Senior Editor",
-    bio: "Made transforms raw footage into compelling narratives, weaving emotion and rhythm into every cut.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=faces",
-  },
-  {
-    name: "Wayan Surya",
-    role: "Director of Photography",
-    bio: "Wayan's technical expertise and artistic vision ensure every shot is perfectly crafted, from lighting to lens choice.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces",
-  },
-  {
-    name: "Ni Luh Ayu",
-    role: "Production Manager",
-    bio: "The backbone of our operations, Ayu ensures seamless execution from concept to delivery.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=faces",
-  },
-  {
-    name: "Komang Adi",
-    role: "Motion Graphics Artist",
-    bio: "Komang brings ideas to life through stunning animations and visual effects that elevate our storytelling.",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=faces",
-  },
-];
+const FOUNDER_DATA = {
+  name: "Sinmby Octaria",
+  role: "Founder & CEO",
+  vision: "Gumi Production hadir untuk memastikan setiap brand tidak hanya sekadar 'eksis' di media sosial, tapi memiliki dampak nyata. Kami menggabungkan estetika sinematik dengan strategi digital yang tajam untuk menciptakan konten yang tidak hanya indah dipandang, tetapi juga mampu mengonversi audiens menjadi pelanggan setia.",
+  image: "/images/gumi-founder.png",
+};
 
 // Hero Section
 function HeroSection() {
@@ -124,13 +92,13 @@ function HeroSection() {
       ref={heroRef}
       className="relative h-screen w-full flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1920&h=1080&fit=crop')",
+        backgroundImage: "url('/images/TheChowk/GWR02339.webp')",
         backgroundSize: "cover",
         backgroundPosition: "50% 50%",
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
+      <div className="absolute inset-0 bg-black/70" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-4">
@@ -138,10 +106,10 @@ function HeroSection() {
           ref={titleRef}
           className="text-6xl md:text-8xl lg:text-9xl font-bold font-serif text-[#E8E4DF] leading-[0.9] mb-6"
         >
-          The Narrative
+          The Vision
         </h1>
         <p className="text-xl md:text-2xl text-[#E8E4DF]/80 font-light max-w-2xl mx-auto">
-          Our Story, Our Mission, Our People
+          Our Story, Our Process, Our Impact
         </p>
       </div>
 
@@ -335,12 +303,12 @@ function ProcessSection() {
   );
 }
 
-// Team Section
-function TeamSection() {
+// Founder Section (Replaces Team Section)
+function FounderSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    gsap.from(".team-header", {
+    gsap.from(".founder-header", {
       y: 80,
       opacity: 0,
       filter: "blur(30px)",
@@ -353,13 +321,24 @@ function TeamSection() {
       },
     });
 
-    gsap.from(".team-member", {
-      y: 100,
+    gsap.from(".founder-image", {
+      x: -100,
       opacity: 0,
       filter: "blur(30px)",
-      scale: 0.95,
-      duration: 1,
-      stagger: 0.15,
+      duration: 1.5,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 60%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    gsap.from(".founder-content", {
+      x: 100,
+      opacity: 0,
+      filter: "blur(30px)",
+      duration: 1.5,
       ease: "power3.out",
       scrollTrigger: {
         trigger: sectionRef.current,
@@ -370,49 +349,58 @@ function TeamSection() {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className="bg-black py-24 md:py-32 px-4 md:px-8 lg:px-12">
-      <div className="w-full max-w-[1600px] mx-auto">
+    <section ref={sectionRef} className="bg-black py-24 md:py-32 px-4 md:px-8 lg:px-12 overflow-hidden">
+      <div className="w-full max-w-[1400px] mx-auto">
         {/* Header */}
-        <div className="team-header mb-16 md:mb-24">
+        <div className="founder-header mb-16 md:mb-24 text-center md:text-left">
           <span className="text-xs font-medium text-[#E8E4DF]/40 uppercase tracking-[0.3em] block mb-6">
-            The Team
+            The Visionary
           </span>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-serif text-[#E8E4DF] mb-6">
-            Meet The Creators
+            Behind Gumi
           </h2>
-          <p className="text-lg md:text-xl text-[#E8E4DF]/70 font-light max-w-3xl">
-            Talented individuals united by passion for visual storytelling and commitment to excellence.
-          </p>
         </div>
 
-        {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-          {TEAM_MEMBERS.map((member, index) => (
-            <div key={index} className="team-member group">
-              {/* Image */}
-              <div className="relative aspect-square mb-6 overflow-hidden rounded-lg">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
-              </div>
-
-              {/* Content */}
-              <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-[#E8E4DF] mb-2">
-                  {member.name}
-                </h3>
-                <p className="text-sm md:text-base text-[#E8E4DF]/60 uppercase tracking-wider mb-4">
-                  {member.role}
-                </p>
-                <p className="text-base md:text-lg text-[#E8E4DF]/70 font-light leading-relaxed">
-                  {member.bio}
-                </p>
-              </div>
+        {/* Founder Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20 items-center">
+          {/* Image */}
+          <div className="founder-image lg:col-span-5 relative">
+            <div className="relative aspect-[4/5] md:aspect-[3/4] overflow-hidden rounded-2xl bg-[#1a1a1a]">
+              <img
+                src={FOUNDER_DATA.image}
+                alt={FOUNDER_DATA.name}
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </div>
-          ))}
+            {/* Decorative element */}
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 border-r-2 border-b-2 border-[#E8E4DF]/20 rounded-br-2xl -z-10" />
+          </div>
+
+          {/* Text Content */}
+          <div className="founder-content lg:col-span-7 flex flex-col gap-8 md:gap-12">
+            <div>
+              <h3 className="text-4xl md:text-5xl font-bold text-[#E8E4DF] mb-2 font-serif">
+                {FOUNDER_DATA.name}
+              </h3>
+              <p className="text-lg md:text-xl text-[#E8E4DF]/60 uppercase tracking-widest font-medium">
+                {FOUNDER_DATA.role}
+              </p>
+            </div>
+
+            <div className="space-y-8">
+              <blockquote className="text-2xl md:text-3xl lg:text-4xl font-light text-[#E8E4DF] italic leading-tight border-l-4 border-[#E8E4DF]/30 pl-8">
+                "{FOUNDER_DATA.vision}"
+              </blockquote>
+            </div>
+
+            {/* Signature or subtle branding */}
+            <div className="pt-8 border-t border-white/10">
+              <span className="text-sm font-medium uppercase tracking-[0.4em] text-[#E8E4DF]/40">
+                Gumi Production — Established 2022
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -426,7 +414,7 @@ export function NarrativeSection() {
       <HeroSection />
       <MissionSection />
       <ProcessSection />
-      <TeamSection />
+      <FounderSection />
     </div>
   );
 }

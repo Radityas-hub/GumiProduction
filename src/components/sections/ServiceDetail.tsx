@@ -44,7 +44,7 @@ interface ServiceData {
       }>;
       description: string;
     };
-    authenticity: {
+    authenticity?: {
       title: string;
       description: string;
     };
@@ -466,14 +466,16 @@ function EdgeSection({ service }: { service: ServiceData }) {
         </div>
 
         {/* Authenticity */}
-        <div className="edge-item">
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-[#E8E4DF] mb-6">
-            {service.edge.authenticity.title}
-          </h3>
-          <p className="text-xl md:text-2xl text-[#E8E4DF]/70 font-light leading-relaxed max-w-4xl">
-            {service.edge.authenticity.description}
-          </p>
-        </div>
+        {service.edge.authenticity && (
+          <div className="edge-item">
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-[#E8E4DF] mb-6">
+              {service.edge.authenticity.title}
+            </h3>
+            <p className="text-xl md:text-2xl text-[#E8E4DF]/70 font-light leading-relaxed max-w-4xl">
+              {service.edge.authenticity.description}
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

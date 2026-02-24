@@ -9,21 +9,10 @@ import gsap from "gsap";
 const WORKS = [
   {
     id: 1,
-    title: "Madhuban: Vegetarian Indian Resto",
-    category: "Social Media Management",
-    video: "/videos/hero.mp4",
-  },
-  {
-    id: 2,
-    title: "Madhuban: Vegetarian Indian Resto",
-    category: "Social Media Management",
-    video: "/videos/hero.mp4",
-  },
-  {
-    id: 3,
-    title: "Madhuban: Vegetarian Indian Resto",
-    category: "Social Media Management",
-    video: "/videos/hero.mp4",
+    slug: "the-chowk",
+    title: "The Chowk: Indian Gourmet House",
+    category: "Content Creation",
+    video: "/videos/theChowk.webm",
   },
 ];
 
@@ -59,7 +48,7 @@ function WorkItem({ item }: WorkItemProps) {
 
   return (
     <Link 
-      href="/works/madhuban-social-media"
+      href={`/works/${item.slug}`}
       className="group work-item border-b border-white/10 py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 transition-colors duration-300 hover:border-white/30 cursor-none block"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -77,7 +66,7 @@ function WorkItem({ item }: WorkItemProps) {
         <video
           ref={videoRef}
           src={item.video}
-          poster="/images/hero-poster.jpg" 
+          poster="/images/TheChowk/GWR02339.webp" 
           preload="none"
           muted
           loop
@@ -205,6 +194,13 @@ export function SelectedWorksSection() {
           {WORKS.map((work) => (
             <WorkItem key={work.id} item={work} />
           ))}
+          
+          {/* Subtle indicator for many more */}
+          <div className="pt-12 opacity-40">
+            <span className="text-sm font-medium uppercase tracking-[0.3em] text-[#E8E4DF]">
+              & many more in archive
+            </span>
+          </div>
         </div>
       </div>
     </section>

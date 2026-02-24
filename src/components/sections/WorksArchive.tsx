@@ -5,105 +5,49 @@ import { cn } from "@/lib";
 import { useGSAP } from "@/hooks";
 import gsap from "gsap";
 
-// Dummy data - ready for replacement
-const CATEGORIES = ["All", "Hospitality", "Music Videos", "Corporate", "Documentary"];
+// Categories for filtering
+const CATEGORIES = ["All", "Content Creation", "Social Media Management", "Digital Marketing", "Hospitality Film"];
 
 const WORKS_DATA = [
   {
     id: 1,
-    slug: "the-mulia-resort",
-    title: "The Mulia Resort & Villas",
-    category: "Hospitality",
-    year: "2025",
-    video: "/videos/hero.mp4",
-    thumbnail: "/images/hero-poster.jpg",
-    challenge: "Creating a visual narrative that captures the essence of luxury hospitality while maintaining authenticity and emotional connection with potential guests.",
-    solution: "We developed a cinematic storytelling approach that showcased not just the property, but the experience. Using golden hour lighting and intimate moments, we crafted a film that feels like a dream vacation.",
+    slug: "the-chowk",
+    title: "The Chowk: Indian Gourmet House",
+    category: "Content Creation",
+    year: "2024",
+    video: "/videos/theChowk.webm",
+    thumbnail: "/images/TheChowk/GWR02339.webp",
     gridClass: "col-span-2 row-span-2", // Large
   },
   {
     id: 2,
-    slug: "sunset-dreams-music-video",
-    title: "Sunset Dreams - Music Video",
-    category: "Music Videos",
+    slug: "medin-bali-cafe",
+    title: "Medin Bali Café: Mediterranean Experience",
+    category: "Social Media Management",
     year: "2024",
     video: "/videos/hero.mp4",
-    thumbnail: "/images/hero-poster.jpg",
-    challenge: "Translating abstract musical emotions into compelling visual metaphors while working with a limited budget and tight timeline.",
-    solution: "Leveraged Bali's natural beauty and practical lighting techniques. Shot during magic hour to maximize production value, creating a dreamy aesthetic that perfectly complemented the song's vibe.",
+    thumbnail: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop",
     gridClass: "col-span-1 row-span-1", // Small
   },
   {
     id: 3,
-    slug: "tech-innovations-corp",
-    title: "Tech Innovations Corp",
-    category: "Corporate",
-    year: "2025",
+    slug: "madhuban-social-media",
+    title: "Madhuban: Vegetarian Indian Resto",
+    category: "Social Media Management",
+    year: "2024",
     video: "/videos/hero.mp4",
-    thumbnail: "/images/hero-poster.jpg",
-    challenge: "Making corporate content engaging and human-centered rather than sterile and forgettable.",
-    solution: "Focused on the people behind the technology. Used dynamic camera movements and authentic interviews to create a corporate film that feels genuine and inspiring.",
+    thumbnail: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=800&h=600&fit=crop",
     gridClass: "col-span-1 row-span-2", // Tall
   },
   {
     id: 4,
-    slug: "bali-coffee-culture",
-    title: "Bali Coffee Culture",
-    category: "Documentary",
-    year: "2024",
-    video: "/videos/hero.mp4",
-    thumbnail: "/images/hero-poster.jpg",
-    challenge: "Documenting traditional coffee farming practices while keeping the narrative accessible to international audiences.",
-    solution: "Created a visual-first documentary that lets the craft speak for itself. Minimal dialogue, maximum visual storytelling with intimate close-ups and sweeping landscapes.",
-    gridClass: "col-span-2 row-span-1", // Wide
-  },
-  {
-    id: 5,
-    slug: "karma-beach-club",
-    title: "Karma Beach Club",
-    category: "Hospitality",
-    year: "2024",
-    video: "/videos/hero.mp4",
-    thumbnail: "/images/hero-poster.jpg",
-    challenge: "Capturing the energy and atmosphere of a beach club experience in a way that drives bookings and social engagement.",
-    solution: "High-energy editing with vibrant color grading. Focused on genuine moments of joy and connection, creating FOMO-inducing content that performs exceptionally on social media.",
-    gridClass: "col-span-1 row-span-1", // Small
-  },
-  {
-    id: 6,
-    slug: "echoes-indie-band",
-    title: "Echoes - Indie Band",
-    category: "Music Videos",
+    slug: "the-mulia-resort",
+    title: "The Mulia Resort & Villas",
+    category: "Hospitality Film",
     year: "2025",
     video: "/videos/hero.mp4",
-    thumbnail: "/images/hero-poster.jpg",
-    challenge: "Creating a visually striking music video with experimental aesthetics that matches the band's unique sound.",
-    solution: "Embraced practical effects and in-camera techniques. Used colored gels, smoke, and creative framing to build a surreal world that feels both intimate and otherworldly.",
-    gridClass: "col-span-1 row-span-1", // Small
-  },
-  {
-    id: 7,
-    slug: "sustainable-futures-summit",
-    title: "Sustainable Futures Summit",
-    category: "Corporate",
-    year: "2024",
-    video: "/videos/hero.mp4",
-    thumbnail: "/images/hero-poster.jpg",
-    challenge: "Covering a multi-day conference while creating content that remains engaging beyond the event itself.",
-    solution: "Developed a documentary-style approach with key speaker highlights and behind-the-scenes moments. Created modular content pieces that work independently and as a cohesive narrative.",
+    thumbnail: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&h=600&fit=crop",
     gridClass: "col-span-2 row-span-1", // Wide
-  },
-  {
-    id: 8,
-    slug: "alila-ubud-wellness-retreat",
-    title: "Alila Ubud - Wellness Retreat",
-    category: "Hospitality",
-    year: "2025",
-    video: "/videos/hero.mp4",
-    thumbnail: "/images/hero-poster.jpg",
-    challenge: "Communicating the transformative wellness experience without relying on clichéd spa imagery.",
-    solution: "Focused on the journey of self-discovery. Used slow, meditative camera movements and natural soundscapes to create an immersive piece that mirrors the retreat experience itself.",
-    gridClass: "col-span-1 row-span-2", // Tall
   },
 ];
 
@@ -134,7 +78,7 @@ function WorkItem({ item }: WorkItemProps) {
 
   return (
     <Link
-      href="/works/madhuban-social-media"
+      href={`/works/${item.slug}`}
       className={cn(
         "group relative overflow-hidden cursor-none work-item block",
         item.gridClass
